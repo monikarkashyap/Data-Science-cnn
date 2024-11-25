@@ -47,7 +47,8 @@ cnn/
 ├── model/
 │   ├── config.py              # Configuration file containing model settings
 │   ├── model.py                # Model architecture definition (CNN)
-│   ├── train.py                # Script to train the model
+│   ├── train.py                # functions to train the model
+│   ├── main.py                # Script to train the model
 ├── templates/
 │   └── index.html              # HTML template for the web interface
 │
@@ -75,9 +76,9 @@ The CNN model used for this project has the following architecture:
 - Batch Size: 64
 - Training the Model
 
-To train the model on the MNIST dataset, run the train.py script.
+To train the model on the MNIST dataset, run the main.py script.
 ```bash
-    python model/train.py
+    python model/main.py
 ```
 This will train the model and save the trained weights as mnist_cnn.pth file.
 
@@ -90,7 +91,7 @@ The web app is built using Flask, which serves the trained CNN model to predict 
 To start the Flask web server for model inference, run:
 
 ```bash
-    python app.py
+    python -m app.app
 ```
 
 The server will start, and you can open your browser and go to http://127.0.0.1:5000 to access the web app.
@@ -118,10 +119,10 @@ Upload any image containing a handwritten digit (28x28 pixels, grayscale).
 ```
 ## Usage
 ## Model Inference in Python
-If you want to use the trained model for inference in Python, you can use the inference.py script:
+If you want to use the trained model for inference in Python, you can run it as module using -m flag:
 
 ```bash
-    python app/inference.py
+    python3 -m app.inference  
 ```
 
 Simply provide the image path of a digit to get the prediction. You can use any 28x28 grayscale image of a handwritten digit.
